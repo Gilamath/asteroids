@@ -6,8 +6,10 @@
 import pygame
 from constants import *
 from player import Player
+from asteroidfield import AsteroidField     # generates Asteroid objects
 
 def main():
+    # initialization
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -15,9 +17,11 @@ def main():
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
     Player.containers = (updateable, drawable)
-    Asteroid.containers = updateable, drawable, asteroids)
+    Asteroid.containers = (updateable, drawable, asteroids)
+    AsteroidField.containers = (updateable)
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    asteroid_field = AsteroidField()
 
     print("Starting Asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
@@ -27,6 +31,7 @@ def main():
     dt = 0
     fps = 120                               # possible to change this FPS as a future setting?
 
+    # game loop
     while True:
         for event in pygame.event.get():    # event loop; makes window's close button work
             if event.type == pygame.QUIT:
