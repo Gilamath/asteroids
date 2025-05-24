@@ -4,6 +4,7 @@
 ################
 
 import pygame
+import sys
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -42,6 +43,10 @@ def main():
         updateable.update(dt)               # update all positions of objects
         for drawn_object in drawable:
             drawn_object.draw(screen)       # draw applicable objects on the screen
+        for a in asteroids:
+            if a.is_colliding_with(player):
+                print("Game over!")
+                sys.exit()
 
         pygame.display.flip()               # display update; call last
         dt = fps_clock.tick(fps) / 1000
