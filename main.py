@@ -35,7 +35,8 @@ def main():
             drawn_object.draw(screen)   # draw applicable objects on the screen
 
         pygame.display.flip()   # display update; call last
-        dt = fps_clock.tick(60) / 1000  # 60 fps
+        #dt = fps_clock.tick(60) / 1000  # 60 fps
+        dt = fps_clock.tick(120) / 1000  # 120 fps
 
 if __name__ == "__main__":
     main()
