@@ -31,7 +31,8 @@ def main():
         screen.fill("black")
 
         updateable.update(dt)       # update all positions of objects
-        drawable.draw(screen)       # draw applicable objects on the screen
+        for drawn_object in drawable:
+            drawn_object.draw(screen)   # draw applicable objects on the screen
 
         pygame.display.flip()   # display update; call last
         dt = fps_clock.tick(60) / 1000  # 60 fps
