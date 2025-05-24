@@ -14,6 +14,5 @@ class Asteroid(CircleShape):
         pygame.draw.circle(screen, "white", self.position, self.radius, 2)
 
     def update(self, delta_time):
-        forward = pygame.Vector2(0, 1).rotate(self.rotation)
         self.position += self.velocity * delta_time
 
