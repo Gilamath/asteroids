@@ -25,6 +25,7 @@ def main():
                 return
         screen.fill("black")
 
+        player.update(dt)       # change player rotation based on input before drawing on screen
         player.draw(screen)     # draw the player on the screen
 
         pygame.display.flip()   # display update; call last
