@@ -10,6 +10,11 @@ from player import Player
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+    updateable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    Player.containers = (updateable, drawable)
+
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     print("Starting Asteroids!")
@@ -25,8 +30,8 @@ def main():
                 return
         screen.fill("black")
 
-        player.update(dt)       # change player rotation based on input before drawing on screen
-        player.draw(screen)     # draw the player on the screen
+        updateable.update(dt)       # update all positions of objects
+        drawable.draw(screen)       # draw applicable objects on the screen
 
         pygame.display.flip()   # display update; call last
         dt = fps_clock.tick(60) / 1000  # 60 fps
