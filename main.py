@@ -54,7 +54,7 @@ def main():
                 sys.exit()
             for b in bullets:
                 if a.is_colliding_with(b):
-                    a.kill()
+                    a.split_or_die()
                     b.kill()
 
         pygame.display.flip()               # display update; call last
