@@ -38,3 +38,9 @@ class Player(CircleShape):
             self.position += forward * PLAYER_SPEED * delta_time
         if keys[pygame.K_s]:
             self.position += forward * PLAYER_SPEED * delta_time * -1
+        if keys[pygame.K_SPACE]:
+            fire_bullet()
+
+    def fire_bullet(self):
+        bullet = Bullet(self.position)
+        bullet.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED
