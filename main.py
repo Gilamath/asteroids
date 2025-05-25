@@ -7,6 +7,7 @@ import pygame
 import sys
 from constants import *
 from player import Player
+from bullets import Bullet
 from asteroid import Asteroid
 from asteroidfield import AsteroidField     # generates Asteroid objects
 
@@ -24,6 +25,7 @@ def main():
     Player.containers = (updateable, drawable)
     Asteroid.containers = (updateable, drawable, asteroids)
     AsteroidField.containers = (updateable)
+    Bullet.containers = (updateable, drawable, bullets)
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     asteroid_field = AsteroidField()
