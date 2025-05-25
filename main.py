@@ -48,7 +48,7 @@ def main():
         for drawn_object in drawable:
             drawn_object.draw(screen)       # draw applicable objects on the screen
 
-        for a in asteroids:                 # check collisions between asteroids and players/bullets
+        for a in asteroids:                 # check collisions between asteroids and players/bullets/asteroids
             if a.is_colliding_with(player):
                 print("Game over!")
                 sys.exit()
@@ -56,6 +56,9 @@ def main():
                 if a.is_colliding_with(b):
                     a.split_or_die()
                     b.kill()
+#            for c in asteroids:
+#                if a.is_colliding_with(c) and a.position != c.position:
+#                    a.asteroid_impact(c)
 
         pygame.display.flip()               # display update; call last
         dt = fps_clock.tick(fps) / 1000
